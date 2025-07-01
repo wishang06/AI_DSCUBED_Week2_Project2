@@ -45,14 +45,17 @@ class DarcyBot:
         self.engine_manager: EngineManager = EngineManager(
             self.config, self.session_manager
         )
+        self.channel_register: dict[str, str] = {}
 
         # Set up event handlers
         self.bot.event(self.on_ready)
         self.bot.event(self.on_message)
 
-    async def on_ready(self) -> None:
-        """Called when the bot is ready to start."""
-        print(f"Logged in as {self.bot.user}")
+    def register_channel(self, session_id: str, channel_id: str) -> None:
+        self.channel_register[session_id] = channel_id
+
+    def unregister_channel(self, session_id: str) -> None:
+        self.channel_register.pop(session_id)
 
     async def on_message(self, message: discord.Message) -> None:
         """Handle incoming messages."""
@@ -109,10 +112,12 @@ class DarcyBot:
             await bus.stop()
 
 
+main_darcy_bot: DarcyBot = DarcyBot()
+
+
 async def main() -> None:
     """Main entry point for the bot."""
-    bot: DarcyBot = DarcyBot()
-    await bot.start()
+    await main_darcy_bot.start()
 
 
 if __name__ == "__main__":
