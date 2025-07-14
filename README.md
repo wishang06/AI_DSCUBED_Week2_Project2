@@ -38,7 +38,6 @@ brain/postgres/AndyS/
      ```
      DATABASE_URL=postgresql://username:password@host:port/dbname
      ```
-   - Replace with your actual PostgreSQL credentials.
 
 3. **Create and populate the tables:**
    - Use the provided DDL and DML scripts to create and populate the main table. You can use a script like the original `manage_table.py` or run the SQL manually.
