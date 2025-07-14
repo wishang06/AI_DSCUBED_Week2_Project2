@@ -21,8 +21,7 @@ brain/postgres/AndyS/
 │   └── AndyS.sql                      # DML for main table
 ├── view_main_table.py                 # View the main table
 ├── view_top5.py                       # View the Top 5 table
-├── view_best_uni.py                   # View the Best per Country table
-└── README.md                          # This file
+└── view_best_uni.py                   # View the Best per Country table
 ```
 
 ## Setup
